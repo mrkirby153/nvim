@@ -60,8 +60,8 @@
         type = "app";
         program = "${pkgs.aus.nvim}/bin/nvim";
       };
-    });
-  # // {
-  #   overlays.default = self.overlayNvim;
-  # };
+    })
+  // {
+    overlays.default = self.overlayNvim;
+  };
 }
