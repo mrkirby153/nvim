@@ -53,12 +53,18 @@
         inherit system;
         overlays = [overlayFlakeInputs overlayNvim];
       };
-    in rec {
+    in {
       formatter = pkgs.alejandra;
-      packages.default = pkgs.aus.nvim;
-      apps.default = {
-        type = "app";
-        program = "${pkgs.aus.nvim}/bin/nvim";
+      packages = rec {
+        default = pkgs.aus.nvim;
+        neovim = default;
+      };
+      apps = rec {
+        default = {
+          type = "app";
+          program = "${pkgs.aus.nvim}/bin/nvim";
+        };
+        neovim = default;
       };
     })
     // {
