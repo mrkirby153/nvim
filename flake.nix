@@ -91,13 +91,13 @@
     in {
       formatter = pkgs.alejandra;
       packages = rec {
-        default = pkgs.aus.nvim;
+        default = pkgs.kirby-nvim;
         neovim = default;
       };
       apps = rec {
         default = {
           type = "app";
-          program = "${pkgs.aus.nvim}/bin/nvim";
+          program = "${pkgs.kirby-nvim}/bin/nvim";
         };
         neovim = default;
       };
