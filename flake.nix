@@ -43,10 +43,8 @@
     ...
   } @ inputs: let
     overlayNvim = final: prev: {
-      aus = {
-        nvim = import ./pkg/nvim.nix {
-          pkgs = final;
-        };
+      kirby-nvim = import ./pkg/nvim.nix {
+        pkgs = final;
       };
     };
   in
