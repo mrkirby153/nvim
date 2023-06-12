@@ -41,7 +41,15 @@
     coloresque-src,
     haml-src,
     ...
-  } @ inputs:
+  } @ inputs: let
+    overlayNvim = final: prev: {
+      aus = {
+        nvim = import ./pkg/nvim.nix {
+          pkgs = final;
+        };
+      };
+    };
+  in
     flake-utils.lib.eachDefaultSystem (system: let
       overlayFlakeInputs = final: prev: let
         buildVimPlugin = {
@@ -78,13 +86,6 @@
             };
           };
       };
-      overlayNvim = final: prev: {
-        aus = {
-          nvim = import ./pkg/nvim.nix {
-            pkgs = final;
-          };
-        };
-      };
       pkgs = import nixpkgs {
         inherit system;
         overlays = [overlayFlakeInputs overlayNvim];
@@ -104,6 +105,6 @@
       };
     })
     // {
-      overlays.default = self.overlayNvim;
+      overlays.default = overlayNvim;
     };
 }
