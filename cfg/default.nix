@@ -1,21 +1,22 @@
 {pkgs}: let
-  nix2Config = dir:
-    builtins.map (file:
-      pkgs.writeTextFile {
-        name = pkgs.lib.strings.removeSuffix ".nix" file;
-        text = import ./${dir}/${file} {inherit pkgs;};
-      }) (builtins.attrNames (builtins.readDir ./${dir}));
-  scripts2Config = dir: let
-    configDir = pkgs.stdenv.mkDerivation {
-      name = "nvim-${dir}-configs";
-      src = ./${dir};
-      installPhase = ''
-        mkdir -p $out
-        cp ./* $out/
-      '';
+  # Read a nix file to a string
+  nixToConfig = name: file:
+    pkgs.writeTextFile {
+      name = pkgs.lib.strings.removeSuffix ".nix" name;
+      text = import file {inherit pkgs;};
     };
-  in
-    builtins.map (file: "${configDir}/${file}") (builtins.attrNames (builtins.readDir configDir));
+  # Read a raw file to a string
+  sourceToConfig = name: file:
+    pkgs.writeTextFile {
+      name = name;
+      text = builtins.readFile file;
+    };
+  configLoader = file: (
+    if (pkgs.lib.strings.hasSuffix ".nix" file)
+    then nixToConfig
+    else sourceToConfig
+  );
+  loadFile = file: (configLoader file) file;
   sourceCommand = file:
     (
       if pkgs.lib.strings.hasSuffix "lua" file
@@ -23,10 +24,10 @@
       else "source"
     )
     + " ${file}";
-  sourceConfigFiles = files:
-    builtins.concatStringsSep "\n" (builtins.map (file: sourceCommand file) files);
-  vim = scripts2Config "vim";
-  lua = scripts2Config "lua";
-  luanix = nix2Config "luanix";
+  readDirectory = dir: let
+    fileNames = builtins.attrNames (builtins.readDir dir);
+    loadedFiles = builtins.map (file: loadFile file "${dir}/${file}") fileNames;
+  in
+    builtins.concatStringsSep "\n" (builtins.map sourceCommand loadedFiles);
 in
-  builtins.concatStringsSep "\n" (builtins.map (configs: sourceConfigFiles configs) [vim lua luanix])
+  builtins.concatStringsSep "\n" (builtins.map readDirectory [./lua])
