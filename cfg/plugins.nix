@@ -3,4 +3,36 @@ with pkgs.vimPlugins; [
   telescope-nvim
   telescope-recent-files
   nvim-lspconfig
+  vaffle
+  css3-syntax
+  coloresque
+  haml
+  vim-surround
+  vim-repeat
+  conflict-marker-vim
+  neosnippet
+  neosnippet-snippets
+  vim-snippets
+  syntastic
+  vim-fugitive
+  webapi-vim
+  vim-gist
+  nerdcommenter
+  vim-commentary
+  tabular
+  tagbar
+  rainbow
+  vim-highlightedyank
+  python-mode
+  vim-json
+  vim-javascript
+  typescript-vim
+  vim-jsx-typescript
+  vim-jsx-pretty
+  vim-closetag
+  emmet-vim
+  vim-markdown
+  vim-toml
+  vim-airline
+  vim-airline-themes
 ]

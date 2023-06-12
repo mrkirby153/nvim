@@ -12,6 +12,22 @@
       url = "github:smartpde/telescope-recent-files";
       flake = false;
     };
+    vaffle-src = {
+      url = "github:cocopon/vaffle.vim";
+      flake = false;
+    };
+    css3-syntax-src = {
+      url = "github:hail2u/vim-css3-syntax";
+      flake = false;
+    };
+    coloresque-src = {
+      url = "github:gko/vim-coloresque";
+      flake = false;
+    };
+    haml-src = {
+      url = "github:tpope/vim-haml";
+      flake = false;
+    };
   };
 
   outputs = {
@@ -20,6 +36,10 @@
     flake-utils,
     neovim,
     telescope-recent-files-src,
+    vaffle-src,
+    css3-syntax-src,
+    coloresque-src,
+    haml-src,
     ...
   } @ inputs:
     flake-utils.lib.eachDefaultSystem (system: let
@@ -39,6 +59,22 @@
             telescope-recent-files = buildVimPlugin {
               name = "telescope-recent-files";
               src = telescope-recent-files-src;
+            };
+            vaffle = buildVimPlugin {
+              name = "vaffle";
+              src = vaffle-src;
+            };
+            css3-syntax = buildVimPlugin {
+              name = "css3-syntax";
+              src = css3-syntax-src;
+            };
+            coloresque = buildVimPlugin {
+              name = "coloresque";
+              src = coloresque-src;
+            };
+            haml = buildVimPlugin {
+              name = "haml";
+              src = haml-src;
             };
           };
       };
