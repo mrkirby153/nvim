@@ -1,31 +1,18 @@
 {pkgs}: let
   customRC = import ../cfg {inherit pkgs;};
   plugins = import ../cfg/plugins.nix {inherit pkgs;};
-  runtimeDeps = import ../runtimeDeps.nix {inherit pkgs;};
-  wrappedRuntimeDeps = pkgs.symlinkJoin {
-    name = "wrappedRuntimeDeps";
-    paths = runtimeDeps;
-    postBuild = ''
-      for f in $out/lib/node_modules/.bin/*; do
-        path=$(readlink --canonicalize-missing "$f")
-        dest="$out/bin/$(basename $f)"
-        if ! [ -f "$dest" ]; then
-          ln -s "$path" "$dest"
-        fi
-      done
-    '';
-  };
-  myNeovim = pkgs.wrapNeovim pkgs.neovim {
-    configure = {
-      inherit customRC;
-      packages.all.start = plugins;
-    };
+  neovim-config = pkgs.neovimUtils.makeNeovimConfig {
+    inherit plugins;
+    inherit customRC;
+    withPython3 = true;
+    withNodeJs = true;
+
+    extraPython3Packages = ps: with ps; [python-lsp-server];
   };
 in
-  pkgs.writeShellApplication {
-    name = "nvim";
-    runtimeInputs = [wrappedRuntimeDeps];
-    text = ''
-      ${myNeovim}/bin/nvim "$@"
-    '';
-  }
+  pkgs.wrapNeovimUnstable pkgs.neovim (neovim-config
+    // {
+      extraName = "-kirby";
+      vimAlias = true;
+      viAlias = true;
+    })
