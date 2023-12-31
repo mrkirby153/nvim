@@ -1,38 +1,40 @@
 {pkgs}:
 with pkgs.vimPlugins; [
-  telescope-nvim
-  telescope-recent-files
-  nvim-lspconfig
-  vaffle
-  css3-syntax
   coloresque
-  haml
-  vim-surround
-  vim-repeat
   conflict-marker-vim
+  css3-syntax
+  emmet-vim
+  haml
+  mason-nvim
+  mason-lspconfig-nvim
   neosnippet
   neosnippet-snippets
-  vim-snippets
-  syntastic
-  vim-fugitive
-  webapi-vim
-  vim-gist
   nerdcommenter
-  vim-commentary
+  nvim-lspconfig
+  python-mode
+  rainbow
+  syntastic
   tabular
   tagbar
-  rainbow
-  vim-highlightedyank
-  python-mode
-  vim-json
-  vim-javascript
+  telescope-nvim
+  telescope-recent-files
   typescript-vim
-  vim-jsx-typescript
-  vim-jsx-pretty
-  vim-closetag
-  emmet-vim
-  vim-markdown
-  vim-toml
+  vaffle
   vim-airline
   vim-airline-themes
+  vim-closetag
+  vim-commentary
+  vim-fugitive
+  vim-gist
+  vim-highlightedyank
+  vim-javascript
+  vim-json
+  vim-jsx-pretty
+  vim-jsx-typescript
+  vim-markdown
+  vim-repeat
+  vim-snippets
+  vim-surround
+  vim-toml
+  webapi-vim
 ]
