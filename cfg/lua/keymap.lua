@@ -11,12 +11,12 @@ local function bind(op, outer_opts)
 end
 
 nmap = bind("n", {noremap = false})
-nnoremap = bind("n")
-vnoremap = bind("v")
-xnoremap = bind("x")
-inoremap = bind("i")
-tnoremap = bind("t")
-map = bind("")
+nnoremap = bind("n") -- Normal
+vnoremap = bind("v") -- Visual + Select
+xnoremap = bind("x") -- Select only
+inoremap = bind("i") -- Insert
+tnoremap = bind("t") -- Terminal
+map = bind("")       -- Normal, Visual, Select
 -------------------------------------------------
 
 -- Navigate windows with ctrl + shift + hjkl
@@ -25,8 +25,8 @@ map("<C-K>", "<C-W>k")
 map("<C-L>", "<C-W>l")
 map("<C-H>", "<C-W>h")
 
--- ctrl + h unhighlights
-map("<C-h>", ":noh<CR>")
+-- alt + h unhighlights
+map("<A-h>", ":noh<CR>")
 
 -- Stay in visual mode after indenting
 vnoremap("<", "<gv")
@@ -37,3 +37,8 @@ nnoremap("q:", "<nop>")
 nnoremap("Q", "<nop>")
 
 nnoremap("Y", "Y$")
+
+nnoremap("<F2>", ":Neotree reveal=true<CR>")
+
+map("<C-R>a", ":sort<CR>")
+map("<C-R>d", ":sort!<CR>")

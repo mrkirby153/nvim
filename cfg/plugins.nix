@@ -5,8 +5,9 @@ with pkgs.vimPlugins; [
   css3-syntax
   emmet-vim
   haml
-  mason-nvim
   mason-lspconfig-nvim
+  mason-nvim
+  neo-tree-nvim
   neosnippet
   neosnippet-snippets
   nerdcommenter
@@ -32,6 +33,7 @@ with pkgs.vimPlugins; [
   vim-jsx-pretty
   vim-jsx-typescript
   vim-markdown
+  vim-matchup
   vim-repeat
   vim-snippets
   vim-surround
