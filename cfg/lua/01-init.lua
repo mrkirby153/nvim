@@ -46,3 +46,5 @@ vim.opt.splitright=true
 vim.opt.splitbelow=true
 
 vim.opt.spelllang=en_us
+
+vim.cmd [[ colorscheme nord ]]

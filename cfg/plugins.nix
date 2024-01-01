@@ -14,6 +14,7 @@ with pkgs.vimPlugins; [
   nvim-cmp
   cmp-nvim-lsp
   luasnip
+  nord-vim
   nvim-config-local
   nvim-lspconfig
   nvim-treesitter-textobjects
