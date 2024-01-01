@@ -1,5 +1,21 @@
 {
   "nodes": {
+    "cmp-nvim-lsp": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1702205473,
+        "narHash": "sha256-/0sh9vJBD9pUuD7q3tNSQ1YLvxFMNykdg5eG+LjZAA8=",
+        "owner": "hrsh7th",
+        "repo": "cmp-nvim-lsp",
+        "rev": "5af77f54de1b16c34b23cba810150689a3a90312",
+        "type": "github"
+      },
+      "original": {
+        "owner": "hrsh7th",
+        "repo": "cmp-nvim-lsp",
+        "type": "github"
+      }
+    },
     "coloresque-src": {
       "flake": false,
       "locked": {
@@ -122,6 +138,7 @@
     },
     "root": {
       "inputs": {
+        "cmp-nvim-lsp": "cmp-nvim-lsp",
         "coloresque-src": "coloresque-src",
         "css3-syntax-src": "css3-syntax-src",
         "flake-utils": "flake-utils",

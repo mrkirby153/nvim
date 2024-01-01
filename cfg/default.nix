@@ -30,4 +30,11 @@
   in
     builtins.concatStringsSep "\n" (builtins.map sourceCommand loadedFiles);
 in
-  builtins.concatStringsSep "\n" (builtins.map readDirectory [./lua])
+''
+  let configdir = "${./extra}"
+  let runtimepath_list = split(&runtimepath, ',')
+  call insert(runtimepath_list, configdir, 0)
+  let &runtimepath = join(runtimepath_list, ',')
+  let &packpath = &runtimepath
+  ${builtins.concatStringsSep "\n" (builtins.map readDirectory [./lua])}
+''

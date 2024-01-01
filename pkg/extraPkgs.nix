@@ -8,4 +8,5 @@ with pkgs; [
   elixir-ls
   cargo
   rustc
+  lua-language-server
 ]

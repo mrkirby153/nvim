@@ -28,6 +28,10 @@
       url = "github:tpope/vim-haml";
       flake = false;
     };
+    cmp-nvim-lsp = {
+      url = "github:hrsh7th/cmp-nvim-lsp";
+      flake = false;
+    };
   };
 
   outputs = {
@@ -40,6 +44,7 @@
     css3-syntax-src,
     coloresque-src,
     haml-src,
+    cmp-nvim-lsp,
     ...
   } @ inputs: let
     overlayNvim = final: prev: {
@@ -81,6 +86,10 @@
             haml = buildVimPlugin {
               name = "haml";
               src = haml-src;
+            };
+            cmp-nvim-lsp = buildVimPlugin {
+              name = "cmp-nvim-lsp";
+              src = cmp-nvim-lsp;
             };
           };
       };

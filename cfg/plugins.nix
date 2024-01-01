@@ -11,6 +11,9 @@ with pkgs.vimPlugins; [
   neosnippet
   neosnippet-snippets
   nerdcommenter
+  nvim-cmp
+  cmp-nvim-lsp
+  luasnip
   nvim-config-local
   nvim-lspconfig
   nvim-treesitter-textobjects
