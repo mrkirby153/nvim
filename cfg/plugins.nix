@@ -11,8 +11,10 @@ with pkgs.vimPlugins; [
   neosnippet
   neosnippet-snippets
   nerdcommenter
-  nvim-lspconfig
   nvim-config-local
+  nvim-lspconfig
+  nvim-treesitter-textobjects
+  nvim-treesitter.withAllGrammars
   python-mode
   rainbow
   syntastic
