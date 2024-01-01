@@ -1,6 +1,6 @@
-local nvim_lsp = require("lspconfig")
-require("mason").setup()
-
+local lspconfig = require("lspconfig")
+local mason = require("mason")
+local mason_lspconfig = require("mason-lspconfig")
 
 local servers = {
   tsserver = {},
@@ -11,7 +11,9 @@ local servers = {
   rust_analyzer = {},
 }
 
+mason.setup()
+mason_lspconfig.setup()
 
 for lsp, cfg in pairs(servers) do
-  nvim_lsp[lsp].setup(cfg)
+  lspconfig[lsp].setup(cfg)
 end

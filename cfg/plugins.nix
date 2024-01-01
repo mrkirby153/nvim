@@ -12,6 +12,7 @@ with pkgs.vimPlugins; [
   neosnippet-snippets
   nerdcommenter
   nvim-lspconfig
+  nvim-config-local
   python-mode
   rainbow
   syntastic
