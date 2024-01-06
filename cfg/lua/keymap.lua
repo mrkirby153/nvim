@@ -40,5 +40,5 @@ nnoremap("Y", "Y$")
 
 nnoremap("<F2>", ":Neotree reveal=true<CR>")
 
-map("<C-R>a", ":sort<CR>")
-map("<C-R>d", ":sort!<CR>")
+map("<C-R>a", ":sort<CR>", {silent = true})
+map("<C-R>d", ":sort!<CR>", {silent = true})

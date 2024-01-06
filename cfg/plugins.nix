@@ -1,24 +1,26 @@
 {pkgs}:
 with pkgs.vimPlugins; [
+  cmp-nvim-lsp
   coloresque
   conflict-marker-vim
   css3-syntax
   emmet-vim
+  gitsigns-nvim
   haml
+  luasnip
   mason-lspconfig-nvim
   mason-nvim
   neo-tree-nvim
   neosnippet
   neosnippet-snippets
+  neovim-ayu
   nerdcommenter
   nvim-cmp
-  cmp-nvim-lsp
-  luasnip
-  nord-vim
   nvim-config-local
   nvim-lspconfig
   nvim-treesitter-textobjects
   nvim-treesitter.withAllGrammars
+  nvim-web-devicons
   python-mode
   rainbow
   syntastic
@@ -26,6 +28,7 @@ with pkgs.vimPlugins; [
   tagbar
   telescope-nvim
   telescope-recent-files
+  trouble-nvim
   typescript-vim
   vaffle
   vim-airline

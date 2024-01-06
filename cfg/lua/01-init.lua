@@ -15,7 +15,7 @@ vim.opt.shiftwidth=4
 vim.opt.expandtab=true
 vim.opt.autoindent=true
 vim.opt.fileformat=unix
-vim.opt.background=dark
+vim.opt.background='dark'
 vim.opt.pastetoggle='<F3>'
 vim.opt.history=1000
 vim.opt.showmode=true
@@ -47,4 +47,8 @@ vim.opt.splitbelow=true
 
 vim.opt.spelllang=en_us
 
-vim.cmd [[ colorscheme nord ]]
+ayu = require('ayu')
+ayu.setup {
+    mirage = true
+}
+ayu.colorscheme()
