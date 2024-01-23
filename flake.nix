@@ -5,7 +5,7 @@
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
     flake-utils.url = "flake-utils";
     neovim = {
-      url = "github:neovim/neovim/stable?dir=contrib";
+      url = "github:neovim/neovim/v0.9.5?dir=contrib";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     telescope-recent-files-src = {
