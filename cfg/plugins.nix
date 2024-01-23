@@ -7,6 +7,7 @@ with pkgs.vimPlugins; [
   emmet-vim
   gitsigns-nvim
   haml
+  lualine-nvim
   luasnip
   mason-lspconfig-nvim
   mason-nvim
@@ -31,8 +32,6 @@ with pkgs.vimPlugins; [
   trouble-nvim
   typescript-vim
   vaffle
-  vim-airline
-  vim-airline-themes
   vim-closetag
   vim-commentary
   vim-fugitive
