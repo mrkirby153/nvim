@@ -48,9 +48,7 @@
     ...
   } @ inputs: let
     overlayNvim = final: prev: {
-      kirby-nvim = import ./pkg/nvim.nix {
-        pkgs = final;
-      };
+      kirby-nvim = import ./pkg/nvim.nix {pkgs = prev;};
     };
   in
     flake-utils.lib.eachDefaultSystem (system: let

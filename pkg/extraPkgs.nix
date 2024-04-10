@@ -1,4 +1,4 @@
-{ pkgs }:
+{pkgs}:
 # A list of extra packages that should be made available to nvim.
 # Put your language servers here.
 with pkgs; [

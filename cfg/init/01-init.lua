@@ -44,6 +44,8 @@ vim.opt.shiftwidth=4
 vim.opt.tabstop=4
 vim.opt.splitright=true
 vim.opt.splitbelow=true
+vim.opt.wildmode="longest:full,full"
+vim.opt.pumheight=25
 
 vim.opt.spelllang=en_us
 
