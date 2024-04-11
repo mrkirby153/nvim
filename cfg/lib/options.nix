@@ -4,6 +4,9 @@
   pkgs,
   ...
 }: let
+
+  extraTypes = import ./types.nix { inherit lib; };
+
   rcModuleType = lib.types.submodule {
     options = {
       vimscript = lib.mkOption {
@@ -29,8 +32,6 @@
   };
 
   vimCfg = config.nvim;
-
-  sourceFileList = files: sourceCommand: builtins.concatStringsSep "\n" (map (f: "${sourceCommand} ${f}") files);
 in {
   options.nvim = {
     alias = lib.mkOption {
@@ -63,6 +64,16 @@ in {
       default = [];
     };
 
+    extraPython3Packages = lib.mkOption {
+      type =  extraTypes.lambdaList;
+      default = ps: [];
+    };
+
+    extraLuaPackages = lib.mkOption {
+      type =  extraTypes.lambdaList;
+      default = ps: [];
+    };
+
     extraName = lib.mkOption {
       type = lib.types.str;
       default = "-kirby";
@@ -92,9 +103,12 @@ in {
           '';
           withPython3 = true;
           withNodeJs = true;
-          # TODO: Figure out how to make this an option
-          extraPython3Packages = ps: with ps; [python-lsp-server];
-          extraLuaPackages = ps: [];
+          extraPython3Packages = 
+          ps:
+            lib.concatLists (builtins.map (func: func(ps)) vimCfg.extraPython3Packages);
+          extraLuaPackages =
+          ps:
+            lib.concatLists (builtins.map (func: func(ps)) vimCfg.extraLuaPackages);
         };
 
         extraWrapperArgs = builtins.concatStringsSep " " (pkgs.lib.optional (vimCfg.extraPackages != []) ''--prefix PATH : "${pkgs.lib.makeBinPath vimCfg.extraPackages}"'');
