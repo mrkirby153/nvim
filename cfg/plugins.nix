@@ -8,6 +8,7 @@ config.nvim.plugins = with pkgs.vimPlugins; [
   emmet-vim
   gitsigns-nvim
   haml
+  lazygit-nvim
   lualine-nvim
   luasnip
   mason-lspconfig-nvim

@@ -42,3 +42,5 @@ nnoremap("<F2>", ":Neotree reveal=true<CR>")
 
 map("<C-R>a", ":sort<CR>", {silent = true})
 map("<C-R>d", ":sort!<CR>", {silent = true})
+
+nnoremap("<leader>gg", ":LazyGit<CR>", {silent = true})
