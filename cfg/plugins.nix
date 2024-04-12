@@ -1,5 +1,6 @@
-{pkgs}:
-with pkgs.vimPlugins; [
+{pkgs, ...}:
+{
+config.nvim.plugins = with pkgs.vimPlugins; [
   cmp-nvim-lsp
   coloresque
   conflict-marker-vim
@@ -48,4 +49,5 @@ with pkgs.vimPlugins; [
   vim-surround
   vim-toml
   webapi-vim
-]
+];
+}

@@ -4,8 +4,7 @@
   pkgs,
   ...
 }: let
-
-  extraTypes = import ./types.nix { inherit lib; };
+  extraTypes = import ./types.nix {inherit lib;};
 
   rcModuleType = lib.types.submodule {
     options = {
@@ -42,6 +41,11 @@ in {
       };
     };
 
+    configDir = lib.mkOption {
+      type = lib.types.path;
+      default = "";
+    };
+
     plugins = lib.mkOption {
       type = lib.types.listOf lib.types.package;
       default = [];
@@ -65,12 +69,12 @@ in {
     };
 
     extraPython3Packages = lib.mkOption {
-      type =  extraTypes.lambdaList;
+      type = extraTypes.lambdaList;
       default = ps: [];
     };
 
     extraLuaPackages = lib.mkOption {
-      type =  extraTypes.lambdaList;
+      type = extraTypes.lambdaList;
       default = ps: [];
     };
 
@@ -103,12 +107,10 @@ in {
           '';
           withPython3 = true;
           withNodeJs = true;
-          extraPython3Packages = 
-          ps:
-            lib.concatLists (builtins.map (func: func(ps)) vimCfg.extraPython3Packages);
-          extraLuaPackages =
-          ps:
-            lib.concatLists (builtins.map (func: func(ps)) vimCfg.extraLuaPackages);
+          extraPython3Packages = ps:
+            lib.concatLists (builtins.map (func: func ps) vimCfg.extraPython3Packages);
+          extraLuaPackages = ps:
+            lib.concatLists (builtins.map (func: func ps) vimCfg.extraLuaPackages);
         };
 
         extraWrapperArgs = builtins.concatStringsSep " " (pkgs.lib.optional (vimCfg.extraPackages != []) ''--prefix PATH : "${pkgs.lib.makeBinPath vimCfg.extraPackages}"'');
