@@ -1,4 +1,4 @@
-{...}: {
+{pkgs, ...}: {
 
   imports = [
     ./plugins.nix
@@ -27,5 +27,8 @@
       with ps; [
         python-lsp-server
       ];
+    extraPackages = with pkgs; [
+      nodePackages.typescript-language-server
+    ];
   };
 }
