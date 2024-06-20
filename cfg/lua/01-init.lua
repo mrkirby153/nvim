@@ -16,7 +16,6 @@ vim.opt.expandtab=true
 vim.opt.autoindent=true
 vim.opt.fileformat=unix
 vim.opt.background='dark'
-vim.opt.pastetoggle='<F3>'
 vim.opt.history=1000
 vim.opt.showmode=true
 vim.opt.cursorline=true

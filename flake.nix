@@ -4,8 +4,8 @@
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
     flake-utils.url = "flake-utils";
-    neovim = {
-      url = "github:neovim/neovim/v0.9.5?dir=contrib";
+    neovim-nightly-overlay = {
+      url = "github:nix-community/neovim-nightly-overlay";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     telescope-recent-files-src = {
@@ -38,7 +38,7 @@
     self,
     nixpkgs,
     flake-utils,
-    neovim,
+    neovim-nightly-overlay,
     telescope-recent-files-src,
     vaffle-src,
     css3-syntax-src,
@@ -60,7 +60,7 @@
         } @ buildVimPluginInputs:
           pkgs.vimUtils.buildVimPlugin buildVimPluginInputs;
       in {
-        neovim = inputs.neovim.packages.${final.system}.neovim;
+        neovim = inputs.neovim-nightly-overlay.packages.${final.system}.default;
 
         vimPlugins =
           prev.vimPlugins
