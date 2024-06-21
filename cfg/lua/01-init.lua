@@ -7,6 +7,9 @@ vim.g.rainbow_active = 1
 vim.g.airline_powerline_fonts = 1
 -------------------------------------
 
+-- Set leader to <space>
+vim.g.mapleader=' '
+
 vim.opt.number=true
 vim.opt.linespace=0
 vim.opt.tabstop=4
