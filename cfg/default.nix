@@ -29,6 +29,7 @@
       ];
     extraPackages = with pkgs; [
       nodePackages.typescript-language-server
+      lua-language-server
     ];
   };
 }
