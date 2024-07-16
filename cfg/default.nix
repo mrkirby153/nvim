@@ -1,5 +1,4 @@
 {pkgs, ...}: {
-
   imports = [
     ./plugins.nix
   ];
@@ -18,6 +17,7 @@
         ./lua/nvim-telescope.lua
         ./lua/treesitter.lua
         ./lua/trouble.lua
+        ./lua/fidget.lua
       ];
       vimscript = [
         ./vimscript/annoyances.vim

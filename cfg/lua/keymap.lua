@@ -38,7 +38,7 @@ nnoremap("Q", "<nop>")
 
 nnoremap("Y", "Y$")
 
-nnoremap("<F2>", ":Neotree reveal=true<CR>")
+nnoremap("<F2>", ":Neotree reveal=true<CR>", {silent = true})
 
 map("<C-R>a", ":sort<CR>", {silent = true})
 map("<C-R>d", ":sort!<CR>", {silent = true})
