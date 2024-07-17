@@ -39,3 +39,16 @@ lspconfig.marksman.setup({
   capabilities = capabilities,
   on_attach = on_attach,
 })
+
+local lexical_override_path = os.getenv("_LEXICAL_OVERRIDE") or "lexical"
+
+lspconfig.lexical.setup {
+  capabilities = capabilities,
+  on_attach = on_attach,
+  settings = {},
+  cmd = { lexical_override_path },
+  filetypes = { "elixir", "eelixir", "heex" },
+  root_dir = function(fname)
+    return lspconfig.util.root_pattern("mix.exs", ".git")(fname) or lspconfig.util.find_git_ancestor(fname) or lspconfig.util.path.dirname(fname)
+  end,
+}
