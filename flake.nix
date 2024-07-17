@@ -50,6 +50,7 @@
     overlayNvim = final: prev: {
       kirby-nvim = import ./pkg/nvim.nix {pkgs = prev;};
     };
+    overlay = import ./pkg/overlay.nix;
   in
     flake-utils.lib.eachDefaultSystem (system: let
       overlayFlakeInputs = final: prev: let
@@ -93,7 +94,7 @@
       };
       pkgs = import nixpkgs {
         inherit system;
-        overlays = [overlayFlakeInputs overlayNvim];
+        overlays = [overlay overlayFlakeInputs overlayNvim];
       };
     in {
       formatter = pkgs.alejandra;

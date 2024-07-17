@@ -2,14 +2,29 @@ local lspconfig = require("lspconfig")
 local mason = require("mason")
 local mason_lspconfig = require("mason-lspconfig")
 
-local servers = {
-  tsserver = {},
-  nil_ls = {},
-  elixirls = {
-    cmd = { "elixir-ls" }
-  },
-  rust_analyzer = {},
-  lua_ls = {
+
+local capabilities = require("capabilities").get_capabilities()
+local on_attach = require("capabilities").on_attach
+
+mason.setup()
+mason_lspconfig.setup()
+
+lspconfig.tsserver.setup({
+  capabilities = capabilities,
+  on_attach = on_attach,
+})
+lspconfig.nil_ls.setup({
+  capabilities = capabilities,
+  on_attach = on_attach,
+})
+lspconfig.rust_analyzer.setup({
+  capabilities = capabilities,
+  on_attach = on_attach,
+})
+lspconfig.lua_ls.setup({
+  capabilities = capabilities,
+  on_attach = on_attach,
+  settings = {
     Lua = {
       runtime = {
         version = "LuaJIT",
@@ -25,18 +40,4 @@ local servers = {
       },
     },
   }
-}
-
-mason.setup()
-mason_lspconfig.setup()
-
-for lsp, cfg in pairs(servers) do
-  lspconfig[lsp].setup {
-    on_attach = require("capabilities").on_attach,
-    capabilities = require("capabilities").get_capabilities(),
-    settings = cfg,
-    filetypes = cfg.filetypes,
-    cmd =cfg.cmd,
-    root_pattern = cfg.root_pattern,
-  }
-end
+})
