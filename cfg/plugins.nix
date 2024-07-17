@@ -24,8 +24,6 @@ in {
     lazygit-nvim
     lualine-nvim
     luasnip
-    mason-lspconfig-nvim
-    mason-nvim
     neo-tree-nvim
     neosnippet
     neosnippet-snippets

@@ -28,8 +28,10 @@
         python-lsp-server
       ];
     extraPackages = with pkgs; [
-      nodePackages.typescript-language-server
       lua-language-server
+      marksman
+      nil
+      nodePackages.typescript-language-server
     ];
   };
 }
