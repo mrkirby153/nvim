@@ -32,6 +32,10 @@
       url = "github:hrsh7th/cmp-nvim-lsp";
       flake = false;
     };
+    inlay-hints-nvim = {
+      url = "github:MysticalDevil/inlay-hints.nvim";
+      flake = false;
+    };
   };
 
   outputs = {
@@ -45,6 +49,7 @@
     coloresque-src,
     haml-src,
     cmp-nvim-lsp,
+    inlay-hints-nvim,
     ...
   } @ inputs: let
     overlayNvim = final: prev: {
@@ -89,6 +94,10 @@
             cmp-nvim-lsp = buildVimPlugin {
               name = "cmp-nvim-lsp";
               src = cmp-nvim-lsp;
+            };
+            inlay-hints-nvim = buildVimPlugin {
+              name = "inlay-hints-nvim";
+              src = inlay-hints-nvim;
             };
           };
       };

@@ -3,9 +3,37 @@ local lspconfig = require("lspconfig")
 local capabilities = require("capabilities").get_capabilities()
 local on_attach = require("capabilities").on_attach
 
+require("inlay-hints").setup()
+
 lspconfig.tsserver.setup({
   capabilities = capabilities,
   on_attach = on_attach,
+  settings = {
+    typescript = {
+      inlayHints = {
+        includeInlayParameterNameHints = "all",
+        includeInlayParameterNameHintsWhenArgumentMatchesName = true,
+        includeInlayFunctionParameterTypeHints = true,
+        includeInlayVariableTypeHints = true,
+        includeInlayVariableTypeHintsWhenTypeMatchesName = true,
+        includeInlayPropertyDeclarationTypeHints = true,
+        includeInlayFunctionLikeReturnTypeHints = true,
+        includeInlayEnumMemberValueHints = true,
+      },
+    },
+    javascript = {
+      inlayHints = {
+        includeInlayParameterNameHints = "all",
+        includeInlayParameterNameHintsWhenArgumentMatchesName = true,
+        includeInlayFunctionParameterTypeHints = true,
+        includeInlayVariableTypeHints = true,
+        includeInlayVariableTypeHintsWhenTypeMatchesName = true,
+        includeInlayPropertyDeclarationTypeHints = true,
+        includeInlayFunctionLikeReturnTypeHints = true,
+        includeInlayEnumMemberValueHints = true,
+      },
+    },
+  }
 })
 lspconfig.nil_ls.setup({
   capabilities = capabilities,
@@ -14,6 +42,42 @@ lspconfig.nil_ls.setup({
 lspconfig.rust_analyzer.setup({
   capabilities = capabilities,
   on_attach = on_attach,
+  settings = {
+    ["rust-analyzer"] = {
+      inlayHints = {
+        bindingModeHints = {
+          enable = false,
+        },
+        chainingHints = {
+          enable = true,
+        },
+        closingBraceHints = {
+          enable = true,
+          minLines = 25,
+        },
+        closureReturnTypeHints = {
+          enable = "never",
+        },
+        lifetimeElisionHints = {
+          enable = "never",
+          useParameterNames = false,
+        },
+        maxLength = 25,
+        parameterHints = {
+          enable = true,
+        },
+        reborrowHints = {
+          enable = "never",
+        },
+        renderColons = true,
+        typeHints = {
+          enable = true,
+          hideClosureInitialization = false,
+          hideNamedConstructor = false,
+        },
+      },
+    }
+  }
 })
 lspconfig.lua_ls.setup({
   capabilities = capabilities,
@@ -32,6 +96,9 @@ lspconfig.lua_ls.setup({
       telemetry = {
         enable = false,
       },
+      hint = {
+        enable = true
+      }
     },
   }
 })

@@ -21,6 +21,7 @@ in {
     fidget-nvim
     gitsigns-nvim
     haml
+    inlay-hints-nvim
     lazygit-nvim
     lualine-nvim
     luasnip

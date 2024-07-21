@@ -226,6 +226,22 @@
         "type": "github"
       }
     },
+    "inlay-hints-nvim": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1720224366,
+        "narHash": "sha256-E6+h9YIMRlot0umYchGYRr94bimBosunVyyvhmdwjIo=",
+        "owner": "MysticalDevil",
+        "repo": "inlay-hints.nvim",
+        "rev": "1d5bd49a43f8423bc56f5c95ebe8fe3f3b96ed58",
+        "type": "github"
+      },
+      "original": {
+        "owner": "MysticalDevil",
+        "repo": "inlay-hints.nvim",
+        "type": "github"
+      }
+    },
     "neovim-nightly-overlay": {
       "inputs": {
         "flake-compat": "flake-compat",
@@ -290,6 +306,7 @@
         "css3-syntax-src": "css3-syntax-src",
         "flake-utils": "flake-utils",
         "haml-src": "haml-src",
+        "inlay-hints-nvim": "inlay-hints-nvim",
         "neovim-nightly-overlay": "neovim-nightly-overlay",
         "nixpkgs": "nixpkgs",
         "telescope-recent-files-src": "telescope-recent-files-src",
