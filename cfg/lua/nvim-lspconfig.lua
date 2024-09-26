@@ -5,7 +5,7 @@ local on_attach = require("capabilities").on_attach
 
 require("inlay-hints").setup()
 
-lspconfig.tsserver.setup({
+lspconfig.ts_ls.setup({
   capabilities = capabilities,
   on_attach = on_attach,
   settings = {
