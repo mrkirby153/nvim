@@ -1,5 +1,6 @@
 {...}: {
   imports = [
+    ./keybinds.nix
     ./plugins.nix
   ];
   config.vim = {
