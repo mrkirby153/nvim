@@ -76,6 +76,13 @@ in {
         silent = true;
         action = ":sort!<CR>";
       }
+
+      {
+        key = "<F2>";
+        mode = modes.normal;
+        silent = true;
+        action = ":Neotree reveal=true<CR>";
+      }
     ];
   };
 }

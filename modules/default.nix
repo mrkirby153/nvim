@@ -1,13 +1,20 @@
 {...}: {
   imports = [
     ./keybinds.nix
+    ./list.nix
     ./plugins.nix
   ];
   config.vim = {
+    options = {
+      cursorline = true;
+      cursorlineopt = "both";
+    };
     visuals = {
       fidget-nvim.enable = true;
       highlight-undo.enable = true;
       indent-blankline.enable = true;
+      rainbow-delimiters.enable = true;
+      nvim-cursorline.enable = true;
     };
     lsp = {
       enable = true;
@@ -56,5 +63,6 @@
         };
       };
     };
+    git.enable = true;
   };
 }
