@@ -64,5 +64,6 @@
       };
     };
     git.enable = true;
+    lineNumberMode = "number";
   };
 }
