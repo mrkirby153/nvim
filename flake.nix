@@ -3,7 +3,7 @@
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
-    flake-utils.url = "flake-utils";
+    flake-utils.url = "github:numtide/flake-utils";
     nvf.url = "github:notashelf/nvf";
 
     telescope-recent-files-src = {
