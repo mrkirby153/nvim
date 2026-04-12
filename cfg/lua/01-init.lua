@@ -50,9 +50,3 @@ vim.opt.wildmode="longest:full,full"
 vim.opt.pumheight=25
 
 vim.opt.spelllang=en_us
-
-ayu = require('ayu')
-ayu.setup {
-    mirage = true
-}
-ayu.colorscheme()

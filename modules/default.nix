@@ -35,14 +35,18 @@
       css.enable = true;
       html.enable = true;
       nix.enable = true;
-      rust.crates.enable = true;
-      rust.enable = true;
+      rust = {
+        enable = true;
+        extensions = {
+          crates-nvim.enable = true;
+        };
+      };
       ts.enable = true;
       zig.enable = true;
       markdown.enable = true;
       # sort-lines: off
 
-      nix.format.type = "nixfmt"; # looks so much nicer
+      nix.format.type = ["nixfmt"]; # looks so much nicer
     };
     filetree.neo-tree.enable = true;
     autocomplete = {

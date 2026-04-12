@@ -1,9 +1,5 @@
 {pkgs, ...}: {
   config.vim = {
-    startPlugins = with pkgs.vimPlugins; [
-      neovim-ayu
-      lazygit-nvim
-    ];
     lazy.plugins = with pkgs.vimPlugins; {
       # Color Scheme
       neovim-ayu = {
