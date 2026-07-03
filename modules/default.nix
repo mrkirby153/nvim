@@ -1,4 +1,4 @@
-{...}: {
+{ ... }: {
   imports = [
     ./keybinds.nix
     ./list.nix
@@ -41,12 +41,12 @@
           crates-nvim.enable = true;
         };
       };
-      ts.enable = true;
+      typescript.enable = true;
       zig.enable = true;
       markdown.enable = true;
       # sort-lines: off
 
-      nix.format.type = ["nixfmt"]; # looks so much nicer
+      nix.format.type = [ "nixfmt" ]; # looks so much nicer
     };
     filetree.neo-tree.enable = true;
     autocomplete = {
